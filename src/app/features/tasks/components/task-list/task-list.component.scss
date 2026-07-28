@@ -1,0 +1,51 @@
+.task-panel {
+  padding: 20px;
+  border: 1px solid #dce4ee;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.92);
+  box-shadow: 0 18px 48px rgba(24, 33, 47, 0.09);
+}
+
+.section-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+h2 {
+  margin: 0;
+}
+
+h2 {
+  color: #18212f;
+  font-size: 1.1rem;
+}
+
+.status-label {
+  color: #657386;
+  font-size: 0.9rem;
+  font-weight: 700;
+}
+
+.empty-state {
+  display: grid;
+  gap: 8px;
+  margin-top: 18px;
+  padding: 28px;
+  border: 1px dashed #b9c6d6;
+  border-radius: 8px;
+  color: #657386;
+  text-align: center;
+  background: #f8fafc;
+}
+
+.empty-state strong {
+  color: #18212f;
+}
+
+.task-list {
+  display: grid;
+  gap: 12px;
+  margin-top: 16px;
+}

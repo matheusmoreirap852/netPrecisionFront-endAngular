@@ -1,7 +1,7 @@
 import { computed, Injectable, signal } from '@angular/core';
 import { finalize } from 'rxjs';
-import { CreateTaskRequest, Task } from '../../core/models/task.model';
-import { TaskService } from '../../core/services/task.service';
+import { CreateTaskRequest, Task } from '../models/task.model';
+import { TaskApiService } from './task-api.service';
 
 @Injectable({
   providedIn: 'root',
@@ -20,13 +20,13 @@ export class TaskFacade {
     () => this.totalTasks() - this.completedTasks(),
   );
 
-  constructor(private readonly taskService: TaskService) {}
+  constructor(private readonly taskApiService: TaskApiService) {}
 
   loadTasks(): void {
     this.loading.set(true);
     this.errorMessage.set('');
 
-    this.taskService
+    this.taskApiService
       .findAll()
       .pipe(finalize(() => this.loading.set(false)))
       .subscribe({
@@ -50,7 +50,7 @@ export class TaskFacade {
     this.saving.set(true);
     this.errorMessage.set('');
 
-    this.taskService
+    this.taskApiService
       .create({ title, description })
       .pipe(finalize(() => this.saving.set(false)))
       .subscribe({
@@ -62,7 +62,7 @@ export class TaskFacade {
   }
 
   toggleStatus(task: Task): void {
-    this.taskService
+    this.taskApiService
       .updateStatus(task.id, { completed: !task.completed })
       .subscribe({
         next: (updatedTask) =>
@@ -77,7 +77,7 @@ export class TaskFacade {
   }
 
   deleteTask(task: Task): void {
-    this.taskService.delete(task.id).subscribe({
+    this.taskApiService.delete(task.id).subscribe({
       next: () =>
         this.tasks.update((tasks) =>
           tasks.filter((currentTask) => currentTask.id !== task.id),

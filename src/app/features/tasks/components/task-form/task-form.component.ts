@@ -1,12 +1,12 @@
 import { Component, input, output, signal } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { CreateTaskRequest } from '../../../core/models/task.model';
+import { CreateTaskRequest } from '../../models/task.model';
 
 @Component({
   selector: 'app-task-form',
   imports: [FormsModule],
   templateUrl: './task-form.component.html',
-  styleUrl: './task-form.component.css',
+  styleUrl: './task-form.component.scss',
 })
 export class TaskFormComponent {
   readonly saving = input.required<boolean>();

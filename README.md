@@ -9,27 +9,52 @@ Front-end Angular para consumir a API Task Manager desenvolvida em Spring Boot.
 - Signals
 - FormsModule
 - HttpClient
+- Standalone Components
 - CSS responsivo
 
 ## Arquitetura
 
-O projeto foi organizado com componentes standalone e uma camada de servico/facade para separar responsabilidades:
+O projeto foi organizado por feature, deixando o dominio de tarefas isolado em `features/tasks`:
 
-- `core/models`: contratos usados pela tela e pela API.
-- `core/services`: comunicacao HTTP com o back-end via `TaskService`.
-- `core/tokens`: configuracao injetavel da URL da API.
-- `tasks/services`: `TaskFacade`, responsavel pelo estado da tela e orquestracao dos casos de uso.
-- `tasks/pages`: pagina container `TaskPageComponent`.
-- `tasks/components`: componentes de apresentacao (`TaskForm`, `TaskSummary` e `TaskList`).
+- `core/config`: configuracao injetavel da URL da API.
+- `features/tasks/models`: contratos usados pela tela e pela API.
+- `features/tasks/data-access`: comunicacao HTTP com o back-end e facade de estado.
+- `features/tasks/pages`: pagina container `TaskPageComponent`.
+- `features/tasks/components`: componentes de apresentacao (`TaskForm`, `TaskSummary`, `TaskList` e `TaskItem`).
 - `environments`: URLs da API para desenvolvimento e build de producao.
 
 Fluxo da tela:
 
 ```text
-App -> TaskPageComponent -> TaskFacade -> TaskService -> API Spring Boot
+AppComponent -> TaskPageComponent -> TaskFacade -> TaskApiService -> API Spring Boot
 ```
 
 Essa organizacao deixa o componente principal limpo, facilita manutencao e mostra separacao entre UI, estado e comunicacao HTTP.
+
+Estrutura principal:
+
+```text
+src/app/
+├── app.component.ts
+├── app.config.ts
+├── core/
+│   └── config/
+│       └── api.config.ts
+└── features/
+    └── tasks/
+        ├── models/
+        │   └── task.model.ts
+        ├── data-access/
+        │   ├── task-api.service.ts
+        │   └── task-facade.service.ts
+        ├── pages/
+        │   └── task-page/
+        └── components/
+            ├── task-form/
+            ├── task-list/
+            ├── task-item/
+            └── task-summary/
+```
 
 ## Funcionalidades
 

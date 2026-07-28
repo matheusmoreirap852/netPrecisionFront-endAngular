@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Inject, Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { TASK_API_URL } from '../tokens/api-url.token';
+import { TASK_API_URL } from '../../../core/config/api.config';
 import {
   CreateTaskRequest,
   Task,
@@ -11,7 +11,7 @@ import {
 @Injectable({
   providedIn: 'root',
 })
-export class TaskService {
+export class TaskApiService {
   constructor(
     private readonly http: HttpClient,
     @Inject(TASK_API_URL) private readonly apiUrl: string,
