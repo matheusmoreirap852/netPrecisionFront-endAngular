@@ -9,17 +9,52 @@ Front-end Angular para consumir a API Task Manager desenvolvida em Spring Boot.
 - Signals
 - FormsModule
 - HttpClient
+- Standalone Components
 - CSS responsivo
 
 ## Arquitetura
 
-O projeto foi iniciado de forma simples, mas separado por responsabilidade:
+O projeto foi organizado por feature, deixando o dominio de tarefas isolado em `features/tasks`:
 
-- `core/models`: contratos usados pela tela e pela API.
-- `core/services`: comunicacao HTTP com o back-end.
-- `app`: componente principal, formulario, listagem e estado da tela.
+- `core/config`: configuracao injetavel da URL da API.
+- `features/tasks/models`: contratos usados pela tela e pela API.
+- `features/tasks/data-access`: comunicacao HTTP com o back-end e facade de estado.
+- `features/tasks/pages`: pagina container `TaskPageComponent`.
+- `features/tasks/components`: componentes de apresentacao (`TaskForm`, `TaskSummary`, `TaskList` e `TaskItem`).
+- `environments`: URLs da API para desenvolvimento e build de producao.
 
-Essa organizacao facilita a leitura do teste: a tela nao conhece detalhes de HTTP alem do `TaskService`, e o service concentra os endpoints do back-end.
+Fluxo da tela:
+
+```text
+AppComponent -> TaskPageComponent -> TaskFacade -> TaskApiService -> API Spring Boot
+```
+
+Essa organizacao deixa o componente principal limpo, facilita manutencao e mostra separacao entre UI, estado e comunicacao HTTP.
+
+Estrutura principal:
+
+```text
+src/app/
+├── app.component.ts
+├── app.config.ts
+├── core/
+│   └── config/
+│       └── api.config.ts
+└── features/
+    └── tasks/
+        ├── models/
+        │   └── task.model.ts
+        ├── data-access/
+        │   ├── task-api.service.ts
+        │   └── task-facade.service.ts
+        ├── pages/
+        │   └── task-page/
+        └── components/
+            ├── task-form/
+            ├── task-list/
+            ├── task-item/
+            └── task-summary/
+```
 
 ## Funcionalidades
 
@@ -75,6 +110,38 @@ http://localhost:4200
 
 ```bash
 npm run build
+```
+
+## Docker
+
+Build da imagem:
+
+```bash
+docker build -t netprecision-task-manager-web .
+```
+
+Rodar o container:
+
+```bash
+docker run --rm -p 4200:80 --name netprecision-task-manager-web netprecision-task-manager-web
+```
+
+Tambem e possivel usar Docker Compose:
+
+```bash
+docker compose up --build -d
+```
+
+A aplicacao ficara disponivel em:
+
+```text
+http://localhost:4200
+```
+
+Para parar:
+
+```bash
+docker compose down
 ```
 
 ## Testes

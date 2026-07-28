@@ -1,15 +1,15 @@
 import { TestBed } from '@angular/core/testing';
 import { of } from 'rxjs';
-import { App } from './app';
-import { TaskService } from './core/services/task.service';
+import { AppComponent } from './app.component';
+import { TaskApiService } from './features/tasks/data-access/task-api.service';
 
-describe('App', () => {
+describe('AppComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [App],
+      imports: [AppComponent],
       providers: [
         {
-          provide: TaskService,
+          provide: TaskApiService,
           useValue: {
             findAll: () => of([]),
           },
@@ -19,13 +19,13 @@ describe('App', () => {
   });
 
   it('should create the app', () => {
-    const fixture = TestBed.createComponent(App);
+    const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
     expect(app).toBeTruthy();
   });
 
   it('should render task manager title', async () => {
-    const fixture = TestBed.createComponent(App);
+    const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     await fixture.whenStable();
     const compiled = fixture.nativeElement as HTMLElement;

@@ -1,0 +1,42 @@
+<main class="page-shell">
+  <section class="workspace">
+    <header class="topbar">
+      <div>
+        <p class="eyebrow">NetPrecision</p>
+        <h1>Gerenciador de tarefas</h1>
+      </div>
+
+      <button
+        class="refresh-button"
+        type="button"
+        (click)="facade.loadTasks()"
+        [disabled]="facade.loading()"
+      >
+        Atualizar
+      </button>
+    </header>
+
+    <app-task-summary
+      [total]="facade.totalTasks()"
+      [pending]="facade.pendingTasks()"
+      [completed]="facade.completedTasks()"
+    />
+
+    <section class="content-grid">
+      <div>
+        <app-task-form [saving]="facade.saving()" (createTask)="createTask($event)" />
+
+        @if (facade.errorMessage()) {
+          <p class="error-message">{{ facade.errorMessage() }}</p>
+        }
+      </div>
+
+      <app-task-list
+        [tasks]="facade.tasks()"
+        [loading]="facade.loading()"
+        (toggleStatus)="facade.toggleStatus($event)"
+        (deleteTask)="facade.deleteTask($event)"
+      />
+    </section>
+  </section>
+</main>

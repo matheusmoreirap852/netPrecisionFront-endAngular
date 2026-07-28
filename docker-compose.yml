@@ -1,0 +1,9 @@
+services:
+  task-manager-web:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: netprecision-task-manager-web
+    ports:
+      - "${WEB_PORT:-4200}:80"
+    restart: unless-stopped

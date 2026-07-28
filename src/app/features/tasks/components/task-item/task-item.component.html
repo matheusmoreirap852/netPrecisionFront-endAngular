@@ -1,0 +1,21 @@
+<article class="task-card" [class.completed]="task().completed">
+  <div class="task-main">
+    <button
+      class="check-button"
+      type="button"
+      (click)="toggleStatus.emit(task())"
+      [attr.aria-label]="task().completed ? 'Marcar como pendente' : 'Marcar como concluida'"
+    >
+      {{ task().completed ? '✓' : '' }}
+    </button>
+
+    <div>
+      <h3>{{ task().title }}</h3>
+      <p>{{ task().description || 'Sem descricao informada.' }}</p>
+    </div>
+  </div>
+
+  <button class="delete-button" type="button" (click)="deleteTask.emit(task())">
+    Excluir
+  </button>
+</article>
