@@ -1,0 +1,31 @@
+.summary-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+  margin-bottom: 22px;
+}
+
+.summary-item {
+  padding: 18px;
+  border: 1px solid #dce4ee;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.86);
+}
+
+.summary-item span {
+  display: block;
+  margin-bottom: 8px;
+  color: #657386;
+  font-size: 0.9rem;
+}
+
+.summary-item strong {
+  color: #18212f;
+  font-size: 2rem;
+}
+
+@media (max-width: 800px) {
+  .summary-grid {
+    grid-template-columns: 1fr;
+  }
+}

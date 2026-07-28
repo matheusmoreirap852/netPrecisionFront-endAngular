@@ -1,0 +1,138 @@
+.task-panel {
+  padding: 20px;
+  border: 1px solid #dce4ee;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.92);
+  box-shadow: 0 18px 48px rgba(24, 33, 47, 0.09);
+}
+
+.section-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+h2,
+h3,
+p {
+  margin: 0;
+}
+
+h2 {
+  color: #18212f;
+  font-size: 1.1rem;
+}
+
+.status-label {
+  color: #657386;
+  font-size: 0.9rem;
+  font-weight: 700;
+}
+
+.empty-state {
+  display: grid;
+  gap: 8px;
+  margin-top: 18px;
+  padding: 28px;
+  border: 1px dashed #b9c6d6;
+  border-radius: 8px;
+  color: #657386;
+  text-align: center;
+  background: #f8fafc;
+}
+
+.empty-state strong {
+  color: #18212f;
+}
+
+.task-list {
+  display: grid;
+  gap: 12px;
+  margin-top: 16px;
+}
+
+.task-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 16px;
+  border: 1px solid #dce4ee;
+  border-radius: 8px;
+  background: #ffffff;
+}
+
+.task-card.completed {
+  background: #f2fbf7;
+}
+
+.task-main {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  min-width: 0;
+}
+
+.check-button {
+  display: grid;
+  flex: 0 0 28px;
+  width: 28px;
+  height: 28px;
+  place-items: center;
+  border: 2px solid #1d7f69;
+  border-radius: 50%;
+  color: #ffffff;
+  font-weight: 800;
+  background: #ffffff;
+  cursor: pointer;
+}
+
+.completed .check-button {
+  background: #1d7f69;
+}
+
+.task-card h3 {
+  margin-bottom: 5px;
+  color: #18212f;
+  font-size: 1rem;
+  overflow-wrap: anywhere;
+}
+
+.task-card p {
+  color: #657386;
+  line-height: 1.45;
+  overflow-wrap: anywhere;
+}
+
+.completed h3,
+.completed p {
+  text-decoration: line-through;
+}
+
+.delete-button {
+  min-height: 36px;
+  padding: 0 12px;
+  border: 0;
+  border-radius: 8px;
+  color: #8f1d2c;
+  font-weight: 700;
+  background: #ffe9ec;
+  cursor: pointer;
+  transition: transform 160ms ease;
+}
+
+.delete-button:hover {
+  transform: translateY(-1px);
+}
+
+@media (max-width: 800px) {
+  .task-card {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .delete-button {
+    width: 100%;
+  }
+}

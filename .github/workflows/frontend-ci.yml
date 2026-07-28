@@ -33,3 +33,11 @@ jobs:
 
       - name: Build application
         run: npm run build
+
+      - name: Build Docker image
+        uses: docker/build-push-action@v6
+        with:
+          context: .
+          file: ./Dockerfile
+          push: false
+          tags: netprecision-task-manager-web:ci

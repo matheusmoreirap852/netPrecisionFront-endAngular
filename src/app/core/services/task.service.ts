@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
-import { Injectable } from '@angular/core';
+import { Inject, Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { TASK_API_URL } from '../tokens/api-url.token';
 import {
   CreateTaskRequest,
   Task,
@@ -11,9 +12,10 @@ import {
   providedIn: 'root',
 })
 export class TaskService {
-  private readonly apiUrl = 'http://localhost:8082/api/tasks';
-
-  constructor(private readonly http: HttpClient) {}
+  constructor(
+    private readonly http: HttpClient,
+    @Inject(TASK_API_URL) private readonly apiUrl: string,
+  ) {}
 
   findAll(): Observable<Task[]> {
     return this.http.get<Task[]>(this.apiUrl);

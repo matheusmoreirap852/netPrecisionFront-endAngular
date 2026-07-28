@@ -1,0 +1,41 @@
+<section class="task-panel">
+  <div class="section-heading">
+    <h2>Tarefas</h2>
+    @if (loading()) {
+      <span class="status-label">Carregando</span>
+    }
+  </div>
+
+  @if (!loading() && tasks().length === 0) {
+    <div class="empty-state">
+      <strong>Nenhuma tarefa cadastrada</strong>
+      <span>Crie a primeira tarefa para validar a integracao com a API.</span>
+    </div>
+  }
+
+  <div class="task-list">
+    @for (task of tasks(); track task.id) {
+      <article class="task-card" [class.completed]="task.completed">
+        <div class="task-main">
+          <button
+            class="check-button"
+            type="button"
+            (click)="toggleStatus.emit(task)"
+            [attr.aria-label]="task.completed ? 'Marcar como pendente' : 'Marcar como concluida'"
+          >
+            {{ task.completed ? '✓' : '' }}
+          </button>
+
+          <div>
+            <h3>{{ task.title }}</h3>
+            <p>{{ task.description || 'Sem descricao informada.' }}</p>
+          </div>
+        </div>
+
+        <button class="delete-button" type="button" (click)="deleteTask.emit(task)">
+          Excluir
+        </button>
+      </article>
+    }
+  </div>
+</section>
