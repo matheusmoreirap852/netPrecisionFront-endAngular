@@ -70,7 +70,13 @@ src/app/
 Por padrao, o front chama:
 
 ```text
-http://localhost:8082/api/tasks
+/api/tasks
+```
+
+Em desenvolvimento, `proxy.conf.json` encaminha `/api` para:
+
+```text
+http://localhost:8082
 ```
 
 Antes de iniciar o Angular, suba a API:
@@ -137,6 +143,8 @@ A aplicacao ficara disponivel em:
 ```text
 http://localhost:4200
 ```
+
+No Docker/Nginx, chamadas para `/api` sao encaminhadas para o servico `task-manager-api` na porta `8080`. Em ambiente de nuvem, coloque front e back-end na mesma rede Docker Compose.
 
 Para parar:
 
