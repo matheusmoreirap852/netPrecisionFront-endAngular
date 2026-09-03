@@ -50,7 +50,7 @@
   flex: 1 1 auto;
 }
 
-.menu-toggle {
+.topbar .menu-toggle {
   display: none;
   width: 44px;
   height: 44px;
@@ -61,7 +61,7 @@
   cursor: pointer;
 }
 
-.menu-toggle span {
+.topbar .menu-toggle span {
   display: block;
   width: 20px;
   height: 2px;
@@ -568,7 +568,7 @@ textarea:focus {
     flex-direction: row;
   }
 
-  .menu-toggle {
+  .topbar .menu-toggle {
     display: grid;
   }
 
