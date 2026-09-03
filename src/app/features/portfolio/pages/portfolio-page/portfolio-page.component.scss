@@ -36,7 +36,18 @@
 
 .topbar {
   justify-content: space-between;
+  gap: 18px;
   padding: 10px 0;
+}
+
+.topbar > strong {
+  flex: 0 0 auto;
+}
+
+.nav-links {
+  justify-content: flex-end;
+  gap: 10px;
+  flex: 1 1 auto;
 }
 
 .menu-toggle {
@@ -73,10 +84,13 @@
 
 .topbar a,
 .topbar button {
+  display: inline-grid;
   min-height: 38px;
-  padding: 0 13px;
+  place-items: center;
+  padding: 0 14px;
   border: 1px solid rgba(255, 255, 255, 0.32);
   background: rgba(255, 255, 255, 0.08);
+  white-space: nowrap;
 }
 
 .topbar .language-button {
@@ -331,7 +345,7 @@ h1 {
   position: absolute;
   top: 12px;
   bottom: 12px;
-  left: 99px;
+  left: 178px;
   width: 2px;
   background: #cbd6e4;
   content: "";
@@ -339,7 +353,7 @@ h1 {
 
 .experience-list article {
   position: relative;
-  grid-template-columns: 200px minmax(0, 1fr);
+  grid-template-columns: 220px minmax(0, 1fr);
   margin-bottom: 14px;
 }
 
@@ -351,7 +365,7 @@ h1 {
 .experience-list article::before {
   position: absolute;
   top: 22px;
-  left: 91px;
+  left: 170px;
   width: 18px;
   height: 18px;
   border: 4px solid #f4f7fb;
@@ -368,7 +382,10 @@ h1 {
 }
 
 .experience-list span {
+  max-width: 132px;
   padding-top: 20px;
+  line-height: 1.25;
+  overflow-wrap: normal;
 }
 
 .experience-list small {
