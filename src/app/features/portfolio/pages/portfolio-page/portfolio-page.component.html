@@ -2,16 +2,25 @@
   <section class="hero-section">
     <nav class="topbar" aria-label="Navegação principal">
       <strong>Matheus Pessoa</strong>
-      <div>
-        <a href="#sobre">Sobre</a>
-        <a href="#jornada">Jornada</a>
-        <a href="#curriculo">Currículo</a>
-        <a href="#experiencia">Experiência</a>
-        <a href="#projeto">Projeto</a>
-        <a href="#github">GitHub</a>
-        <a href="#projetos">Projetos</a>
-        <a href="#mensagem">Mensagem</a>
-        <button type="button" (click)="accessSystem.emit()">Sistema</button>
+      <button
+        class="menu-toggle"
+        type="button"
+        aria-label="Abrir menu"
+        aria-controls="portfolio-menu"
+        [attr.aria-expanded]="menuOpen()"
+        (click)="toggleMenu()"
+      >
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <div id="portfolio-menu" class="nav-links" [class.open]="menuOpen()">
+        <a href="#sobre" (click)="closeMenu()">Sobre</a>
+        <a href="#experiencia" (click)="closeMenu()">Experiência</a>
+        <a href="#projetos" (click)="closeMenu()">Projetos</a>
+        <a href="#curriculo" (click)="closeMenu()">Currículo</a>
+        <a href="#mensagem" (click)="closeMenu()">Contato</a>
+        <button type="button" (click)="closeMenu(); accessSystem.emit()">Acessar sistema</button>
       </div>
     </nav>
 
@@ -20,21 +29,15 @@
         <p class="eyebrow">Full-Stack Software Engineer</p>
         <h1>Matheus Moreira Pessoa</h1>
         <p class="hero-copy">
-          Construo aplicações web completas, APIs REST e soluções corporativas com foco
-          em clareza técnica, sustentação em produção e evolução contínua do produto.
-          Minha trajetória começou em uma agência de propaganda e publicidade, passou por
-          suporte, universidade, Prefeitura de Goiânia, Cast Group, Senac, TCS e projetos
-          com cloud, integrações e gestão pública.
+          Desenvolvo e sustento sistemas corporativos para setor público e grandes empresas,
+          atuando da regra de negócio à publicação em produção. Minha base começou em front-end,
+          suporte e infraestrutura, evoluiu para C#, .NET, Java, Angular, dados, integrações,
+          cloud e soluções com impacto real em operação.
         </p>
         <div class="hero-actions">
-          <a class="primary-action" href="#mensagem">Deixar mensagem</a>
-          <a
-            class="secondary-action"
-            href="https://github.com/matheusmoreirap852"
-            target="_blank"
-            rel="noreferrer"
-          >
-            Ver GitHub
+          <a class="primary-action" href="#projetos" (click)="closeMenu()">Ver estudos de caso</a>
+          <a class="secondary-action" href="curriculo-matheus-pessoa.pdf" target="_blank" rel="noreferrer">
+            Baixar currículo
           </a>
           <button class="secondary-action" type="button" (click)="accessSystem.emit()">
             Acessar sistema
@@ -43,24 +46,27 @@
         <div class="hero-stats" aria-label="Indicadores da trajetória">
           <article>
             <strong>2016</strong>
-            <span>Início na tecnologia</span>
+            <span>Início profissional em tecnologia</span>
+          </article>
+          <article>
+            <strong>3 setores</strong>
+            <span>Governo, educação e grandes empresas</span>
           </article>
           <article>
             <strong>Full stack</strong>
-            <span>Front-end, back-end, banco e cloud</span>
-          </article>
-          <article>
-            <strong>Atual</strong>
-            <span>Setor público, IA e dados</span>
+            <span>Front-end, back-end, dados, cloud e operação</span>
           </article>
         </div>
       </div>
 
       <aside class="profile-card" aria-label="Resumo profissional">
         <div class="avatar">MP</div>
-        <strong>C# | .NET | ASP.NET Core | Java | Spring Boot | Angular | React | SQL</strong>
+        <strong>C# | .NET | Java | Spring Boot | Angular | React | SQL | AWS</strong>
         <span>Goiânia, GO | Goiás, Brasil</span>
-        <p>Atuação prática em sustentação, arquitetura, integrações, Docker, GitHub Actions, AWS EC2, Oracle, SQL Server e Supabase.</p>
+        <p>
+          Atuação prática em APIs REST, OutSystems, integrações, Oracle, SQL Server,
+          Docker, GitHub Actions, AWS EC2, BI, logs e sustentação de produção.
+        </p>
       </aside>
     </div>
   </section>
@@ -68,24 +74,22 @@
   <section id="sobre" class="content-section about-section">
     <div class="section-title">
       <p class="eyebrow">Sobre</p>
-      <h2>Engenharia de software com visão de produto, negócio e sustentação.</h2>
+      <h2>Engenharia de software com visão de produto, operação e negócio.</h2>
     </div>
 
     <div class="about-grid">
       <article>
-        <h3>Resumo</h3>
+        <h3>Resumo profissional</h3>
         <p>
-          Atuo no ciclo completo de software: entendimento da necessidade, desenho da solução,
-          implementação, testes, publicação, monitoramento e evolução. Gosto de aproximar
-          tecnologia do contexto real do negócio, porque sistemas bons precisam resolver problemas
-          concretos e continuar simples de manter.
+          Atuo no ciclo completo de software: levantamento, desenho da solução,
+          implementação, testes, publicação, monitoramento e evolução. Minha experiência
+          une desenvolvimento, suporte, infraestrutura, banco de dados e relacionamento com
+          usuários, o que ajuda a construir sistemas mais simples de operar e manter.
         </p>
         <p>
-          Trabalho com Clean Code, SOLID, DDD, separação de responsabilidades, segurança
-          de aplicações e código preparado para crescer sem virar um peso para o time.
-          Minha próxima etapa acadêmica é a especialização lato sensu pela UFG em
-          Inteligência Artificial e Ciência de Dados para a Gestão Pública, conectando
-          engenharia, indicadores e tomada de decisão.
+          Nos últimos anos trabalhei com sistemas públicos, licitação, gestão documental,
+          educação, torneios, BI, integrações corporativas e ambientes com Scrum, dailies,
+          documentação, esteiras e suporte à produção.
         </p>
       </article>
 
@@ -109,79 +113,244 @@
     <div class="focus-strip" aria-label="Áreas de atuação">
       <article>
         <strong>Produto</strong>
-        <span>Levantamento, priorização e acompanhamento de entregas.</span>
+        <span>Entendimento do problema, priorização, organização e acompanhamento de entregas.</span>
       </article>
       <article>
-        <strong>Qualidade</strong>
-        <span>Testes, revisão técnica, observabilidade e melhoria contínua.</span>
+        <strong>Engenharia</strong>
+        <span>APIs, front-end, regras de negócio, integrações, testes e evolução técnica.</span>
       </article>
       <article>
         <strong>Operação</strong>
-        <span>Publicação, suporte, correção de incidentes e evolução segura.</span>
+        <span>Publicação, logs, diagnóstico de erros, banco de dados, cloud e suporte.</span>
       </article>
     </div>
   </section>
 
-  <section id="jornada" class="content-section journey-section">
+  <section id="experiencia" class="content-section experience-section">
     <div class="section-title">
-      <p class="eyebrow">Jornada</p>
-      <h2>Da base técnica ao desenho de soluções completas.</h2>
+      <p class="eyebrow">Experiência</p>
+      <h2>Linha do tempo profissional até a atuação atual.</h2>
     </div>
 
-    <div class="journey-grid">
+    <div class="experience-list">
       <article>
-        <span>Fase 01</span>
-        <h3>Primeiro contato profissional</h3>
-        <p>
-          Iniciei em uma empresa de propaganda e publicidade, onde tive contato com
-          demandas reais, páginas, manutenção e entrega para clientes. Foi o começo da
-          construção da minha base em front-end e também da curiosidade pelo back-end.
-        </p>
+        <span>Atual</span>
+        <div>
+          <small>Jun 2026 - atual</small>
+          <h3>Argo Inteligência Digital</h3>
+          <strong>Engenheiro de Software</strong>
+          <p>
+            Evolução e sustentação de soluções utilizadas pela Prefeitura de Goiânia,
+            com análise de regras, integrações, testes, entregas e aproximação entre
+            engenharia, gestão pública, IA e dados.
+          </p>
+        </div>
       </article>
       <article>
-        <span>Fase 02</span>
-        <h3>Universidade, suporte e infraestrutura</h3>
-        <p>
-          Entrei na PUC Goiás em Análise e Desenvolvimento de Sistemas e, na Ortobom,
-          atuei com manutenção de máquinas, relacionamento com cliente, redes e configuração
-          de servidores. Essa fase fortaleceu resolução de problemas e visão de operação.
-        </p>
+        <span>Cloud</span>
+        <div>
+          <small>Out 2025 - Jun 2026</small>
+          <h3>Óticas Brasil</h3>
+          <strong>Software Engineer | PJ sob demanda</strong>
+          <p>
+            Sistema web integrado a Oracle e PL/SQL, com apoio em migração para AWS EC2,
+            automações, consultas analíticas e organização de repositório no GitHub.
+          </p>
+        </div>
       </article>
       <article>
-        <span>Fase 03</span>
-        <h3>Atendimento, controle e organização</h3>
-        <p>
-          Trabalhei na Oi como call center por seis meses e fui efetivado para control desk.
-          Passei a organizar filas, regras, alterações de chamados e atendimentos, ganhando
-          disciplina para processos, prioridade e comunicação com áreas diferentes.
-        </p>
+        <span>Integrações</span>
+        <div>
+          <small>Jan 2024 - Jun 2026</small>
+          <h3>Tata Consultancy Services | Petrobras</h3>
+          <strong>Analista de Sistemas Pleno | Software Engineer</strong>
+          <p>
+            Atuação remota em times corporativos com OutSystems, Java, documentação,
+            reuniões técnicas, Microsoft Graph API, SharePoint REST, AWS S3 e gestão
+            documental.
+          </p>
+        </div>
       </article>
       <article>
-        <span>Fase 04</span>
-        <h3>Desenvolvimento corporativo</h3>
-        <p>
-          Na Prefeitura de Goiânia e na Cast Group, aprofundei minha atuação em sistemas
-          públicos, OutSystems, C#, licitação, regras complexas, Scrum, dailies, planejamento
-          e organização. Também criei sistemas próprios para apoiar minha gestão.
-        </p>
+        <span>Liderança</span>
+        <div>
+          <small>Mar 2025 - Jun 2025</small>
+          <h3>Sorigue | Playroll Spain</h3>
+          <strong>Tech Lead Freelancer</strong>
+          <p>
+            Apoio em arquitetura, organização técnica, microsserviços .NET, Azure,
+            testes automatizados, CI/CD e comunicação técnica em espanhol e inglês.
+          </p>
+        </div>
       </article>
       <article>
-        <span>Fase 05</span>
-        <h3>Autonomia técnica e produto</h3>
-        <p>
-          No Senac, tive liberdade para construir soluções com apoio de profissionais de
-          infraestrutura, DBA, DevOps, gerência e gestão. Aprendi mais sobre procedures,
-          migrações, otimização de consultas, BI, logs, esteiras e publicação.
-        </p>
+        <span>Produto</span>
+        <div>
+          <small>Jul 2022 - Fev 2024</small>
+          <h3>Senac Goiás</h3>
+          <strong>Analista de Sistemas de TI</strong>
+          <p>
+            Desenvolvimento de sistemas, banco, publicação, diagnóstico de erros e
+            melhoria contínua. Criei o sistema Copa Sesc e trabalhei junto de infraestrutura,
+            DBA, DevOps, gerência e gestores.
+          </p>
+        </div>
       </article>
       <article>
-        <span>Fase 06</span>
-        <h3>Escala, integração e remoto</h3>
-        <p>
-          Na TCS, atuando para Petrobras, trabalhei em ambiente remoto com times fortes,
-          reuniões, documentação, troca de informações, OutSystems, Java e integração entre
-          processos corporativos. Essa fase elevou minha visão de escala e colaboração.
-        </p>
+        <span>Setor público</span>
+        <div>
+          <small>2020 - 2022</small>
+          <h3>Prefeitura de Goiânia | Cast Group</h3>
+          <strong>OutSystems, C#, licitação e Scrum</strong>
+          <p>
+            Sustentação e evolução de sistemas públicos com regras de licitação,
+            processos complexos, dailies, planejamento, documentação e organização de
+            atividades.
+          </p>
+        </div>
+      </article>
+      <article>
+        <span>Base</span>
+        <div>
+          <small>2016 - 2021</small>
+          <h3>Propaganda, PUC Goiás, Ortobom e Oi</h3>
+          <strong>Front-end, suporte, redes e control desk</strong>
+          <p>
+            Primeiro contato profissional em agência de propaganda, formação em Análise
+            e Desenvolvimento de Sistemas pela PUC Goiás, suporte na Ortobom e organização
+            de filas e chamados na Oi.
+          </p>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section id="projetos" class="content-section projects-section">
+    <div class="section-title">
+      <p class="eyebrow">Estudos de caso</p>
+      <h2>Projetos reais apresentados pelo problema, solução e resultado.</h2>
+    </div>
+
+    <div class="case-grid">
+      <article>
+        <span>Setor público</span>
+        <h3>Portal de Dados de Goiânia</h3>
+        <dl>
+          <div>
+            <dt>Problema</dt>
+            <dd>Organizar dados públicos e regras de negócio em um ambiente confiável para consulta e evolução.</dd>
+          </div>
+          <div>
+            <dt>Responsabilidade</dt>
+            <dd>Sustentação, análise de requisitos, correções, integrações e apoio à entrega técnica.</dd>
+          </div>
+          <div>
+            <dt>Solução</dt>
+            <dd>Aplicações corporativas com back-end, front-end, banco de dados, documentação e acompanhamento ágil.</dd>
+          </div>
+          <div>
+            <dt>Tecnologias</dt>
+            <dd>C#, OutSystems, SQL, integrações, Scrum e sistemas públicos.</dd>
+          </div>
+        </dl>
+        <strong class="case-result">Resultado: sistemas mais organizados, sustentáveis e alinhados à gestão pública.</strong>
+      </article>
+
+      <article>
+        <span>Integrações</span>
+        <h3>Gestão documental - Petrobras</h3>
+        <dl>
+          <div>
+            <dt>Problema</dt>
+            <dd>Tratar documentos corporativos com segurança, controle, integração e rastreabilidade entre plataformas.</dd>
+          </div>
+          <div>
+            <dt>Responsabilidade</dt>
+            <dd>Participação em time remoto, documentação, reuniões técnicas, manutenção e evolução de fluxos.</dd>
+          </div>
+          <div>
+            <dt>Solução</dt>
+            <dd>Integrações com serviços Microsoft e armazenamento em cloud para apoiar processos documentais.</dd>
+          </div>
+          <div>
+            <dt>Tecnologias</dt>
+            <dd>OutSystems, Java, Microsoft Graph API, SharePoint REST e AWS S3.</dd>
+          </div>
+        </dl>
+        <strong class="case-result">Resultado: fluxo documental mais integrado, documentado e preparado para escala.</strong>
+      </article>
+
+      <article>
+        <span>Produto completo</span>
+        <h3>Copa Sesc - gestão de torneios</h3>
+        <dl>
+          <div>
+            <dt>Problema</dt>
+            <dd>Centralizar a gestão de torneios, participantes, jogos e acompanhamento operacional do evento.</dd>
+          </div>
+          <div>
+            <dt>Responsabilidade</dt>
+            <dd>Construção do sistema do zero, entendimento das regras, modelagem, telas, banco e publicação.</dd>
+          </div>
+          <div>
+            <dt>Solução</dt>
+            <dd>Sistema web para apoiar a gestão completa do torneio junto às áreas envolvidas.</dd>
+          </div>
+          <div>
+            <dt>Tecnologias</dt>
+            <dd>.NET, SQL, procedures, logs, BI, esteiras e suporte à operação.</dd>
+          </div>
+        </dl>
+        <strong class="case-result">Resultado: processo operacional digitalizado e mais simples de acompanhar.</strong>
+      </article>
+    </div>
+  </section>
+
+  <section id="arquitetura" class="content-section project-story">
+    <div>
+      <p class="eyebrow">Decisões técnicas</p>
+      <h2>Como transformo experiência em engenharia prática.</h2>
+      <p>
+        Este portfólio também demonstra o Task Manager full stack: API REST, frontend Angular,
+        autenticação, isolamento de tarefas por usuário, formulário público de mensagens,
+        testes, Swagger, Nginx, Docker e publicação estática no GitHub Pages.
+      </p>
+      <div class="project-metrics" aria-label="Resumo técnico do projeto">
+        <article>
+          <strong>DDD</strong>
+          <span>Domínio separado de infraestrutura e interface.</span>
+        </article>
+        <article>
+          <strong>CI/CD</strong>
+          <span>Build, testes, Docker e GitHub Pages.</span>
+        </article>
+        <article>
+          <strong>Cloud</strong>
+          <span>Preparação para AWS EC2, Nginx e proxy de API.</span>
+        </article>
+      </div>
+    </div>
+
+    <div class="timeline">
+      <article>
+        <span>01. Domínio</span>
+        <h3>Regra de negócio protegida</h3>
+        <p>Entidades, value objects, factories e casos de uso para reduzir acoplamento em controllers.</p>
+      </article>
+      <article>
+        <span>02. API</span>
+        <h3>Contrato REST e persistência</h3>
+        <p>Spring Boot, JPA, validações, tratamento global de erros e Swagger para leitura rápida do contrato.</p>
+      </article>
+      <article>
+        <span>03. Interface</span>
+        <h3>Angular com fluxo claro</h3>
+        <p>Componentes, signals, facade, services HTTP e separação entre portfólio público e área logada.</p>
+      </article>
+      <article>
+        <span>04. Publicação</span>
+        <h3>Docker, Nginx e Pages</h3>
+        <p>Execução local com Docker Compose e publicação do portfólio como vitrine pública no GitHub Pages.</p>
       </article>
     </div>
   </section>
@@ -189,7 +358,7 @@
   <section id="curriculo" class="content-section">
     <div class="section-title">
       <p class="eyebrow">Currículo</p>
-      <h2>Competências principais e formação.</h2>
+      <h2>Competências principais, formação e download em PDF.</h2>
     </div>
 
     <div class="resume-grid">
@@ -208,6 +377,16 @@
         <h3>Arquitetura</h3>
         <p>Clean Code, SOLID, DDD, Arquitetura Limpa, microsserviços, segurança, testes e CI/CD.</p>
       </article>
+    </div>
+
+    <div class="resume-download">
+      <div>
+        <strong>Currículo em PDF</strong>
+        <span>Resumo objetivo para recrutadores, com competências, trajetória e contatos principais.</span>
+      </div>
+      <a class="primary-action" href="curriculo-matheus-pessoa.pdf" target="_blank" rel="noreferrer">
+        Baixar currículo em PDF
+      </a>
     </div>
 
     <div class="education-strip">
@@ -229,197 +408,7 @@
     </div>
   </section>
 
-  <section id="experiencia" class="content-section experience-section">
-    <div class="section-title">
-      <p class="eyebrow">Experiência</p>
-      <h2>Trajetória em sistemas corporativos, setor público, cloud e liderança técnica.</h2>
-    </div>
-
-    <div class="experience-list">
-      <article>
-        <span>Atual</span>
-        <div>
-          <small>Jun 2026 - atual</small>
-          <h3>Argo Inteligência Digital</h3>
-          <strong>Engenheiro de Software</strong>
-          <p>Atuo no desenvolvimento, evolução e sustentação de soluções utilizadas pela Prefeitura de Goiânia, acompanhando requisitos, regras de negócio, integrações, testes e entregas. É a continuidade da minha trajetória no setor público, agora com mais maturidade em arquitetura, produto e dados.</p>
-          <ul>
-            <li>Evolução de sistemas corporativos utilizados em ambiente público.</li>
-            <li>Análise de regras, correções, integrações e acompanhamento de entregas.</li>
-            <li>Aproximação entre engenharia, gestão pública, IA e ciência de dados.</li>
-          </ul>
-        </div>
-      </article>
-      <article>
-        <span>Cloud</span>
-        <div>
-          <small>Out 2025 - Jun 2026</small>
-          <h3>Óticas Brasil</h3>
-          <strong>Software Engineer | PJ sob demanda</strong>
-          <p>Trabalhei em sistema web integrado a Oracle e PL/SQL, apoiando migração para AWS EC2, automações e consultas analíticas para BI. Essa etapa consolidou deploy em cloud e visão de dados aplicada ao negócio.</p>
-          <ul>
-            <li>Migração e publicação em AWS EC2.</li>
-            <li>Consultas analíticas, PL/SQL e apoio a BI.</li>
-            <li>Automação e organização de repositório com GitHub.</li>
-          </ul>
-        </div>
-      </article>
-      <article>
-        <span>Integrações</span>
-        <div>
-          <small>Jan 2024 - Jun 2026</small>
-          <h3>Tata Consultancy Services</h3>
-          <strong>Analista de Sistemas Pleno | Software Engineer</strong>
-          <p>Na TCS, em projetos para Petrobras, participei de times remotos com alta troca de informação, documentação e processos corporativos. Trabalhei com OutSystems, Java, integrações, gestão documental, Microsoft Graph API, SharePoint REST e AWS S3.</p>
-          <ul>
-            <li>Integrações com Microsoft Graph API, SharePoint REST e AWS S3.</li>
-            <li>Documentação, reuniões técnicas e alinhamento com equipes distribuídas.</li>
-            <li>Apresentação de solução com IA para equipes internacionais.</li>
-          </ul>
-        </div>
-      </article>
-      <article>
-        <span>Liderança</span>
-        <div>
-          <small>Mar 2025 - Jun 2025</small>
-          <h3>Sorigue | Playroll Spain</h3>
-          <strong>Tech Lead Freelancer</strong>
-          <p>Atuei como liderança técnica em projeto internacional, apoiando arquitetura, organização técnica e evolução de serviços em .NET. Foi uma etapa importante para exercitar comunicação, tomada de decisão e responsabilidade técnica em outro contexto cultural.</p>
-          <ul>
-            <li>Arquitetura com .NET Core 5 a 8 e microsserviços.</li>
-            <li>Azure, testes automatizados e CI/CD.</li>
-            <li>Comunicação técnica em espanhol e inglês.</li>
-          </ul>
-        </div>
-      </article>
-      <article>
-        <span>Arquitetura</span>
-        <div>
-          <small>Jul 2022 - Fev 2024</small>
-          <h3>Senac Goiás</h3>
-          <strong>Analista de Sistemas de TI</strong>
-          <p>O Senac foi uma fase de grande crescimento, com liberdade para construir projetos e colaboração próxima com infraestrutura, DBA, DevOps, gerente e gestores. Assumi responsabilidades de desenvolvimento, banco, publicação, investigação de erros e melhoria contínua.</p>
-          <ul>
-            <li>Criação do sistema Copa Sesc, responsável pela gestão de torneios.</li>
-            <li>Procedures, migrações, otimização de consultas e apoio a BI.</li>
-            <li>Logs, diagnóstico em infraestrutura, ambientes de desenvolvimento e esteiras de publicação.</li>
-          </ul>
-        </div>
-      </article>
-      <article>
-        <span>Setor público</span>
-        <div>
-          <small>2020 - 2022</small>
-          <h3>Prefeitura de Goiânia | Cast Group</h3>
-          <strong>Sistemas públicos, OutSystems e C#</strong>
-          <p>Durante a faculdade, iniciei minha carreira em sistemas da Prefeitura de Goiânia e depois atuei pela Cast Group. Trabalhei com OutSystems e fui direcionado para a SEDI, em sistemas C#, onde aprendi regras de licitação, processos complexos, Scrum, dailies, planejamento e organização.</p>
-          <ul>
-            <li>Sustentação e evolução de sistemas públicos.</li>
-            <li>Regras de licitação, fluxos com muitas dimensões e modelagem de processos.</li>
-            <li>Criação de sistema próprio para organizar minha gestão de atividades.</li>
-          </ul>
-        </div>
-      </article>
-      <article>
-        <span>Formação</span>
-        <div>
-          <small>2018 - 2021</small>
-          <h3>PUC Goiás e especializações</h3>
-          <strong>Análise e Desenvolvimento de Sistemas</strong>
-          <p>Cursei Análise e Desenvolvimento de Sistemas na PUC Goiás, com professores que marcaram minha formação técnica. Em paralelo, aprofundei estudos por cursos como a carreira do Balta.io, fortalecendo ambiente Microsoft, C#, .NET, boas práticas e arquitetura.</p>
-          <ul>
-            <li>Formação superior em Análise e Desenvolvimento de Sistemas.</li>
-            <li>Estudos em C#, .NET, arquitetura e ambiente Microsoft.</li>
-            <li>Base acadêmica aplicada diretamente aos projetos profissionais.</li>
-          </ul>
-        </div>
-      </article>
-      <article>
-        <span>Operação</span>
-        <div>
-          <small>2017 - 2019</small>
-          <h3>Ortobom e Oi</h3>
-          <strong>Suporte, cliente, redes e control desk</strong>
-          <p>Na Ortobom, trabalhei com manutenção de máquinas, suporte ao cliente, redes e configuração de servidores. Na Oi, comecei no call center e fui efetivado para control desk, organizando filas, regras e chamados. Essa etapa construiu minha visão de operação e atendimento.</p>
-          <ul>
-            <li>Manutenção de máquinas, redes e configuração de servidores.</li>
-            <li>Relacionamento com cliente e solução de problemas práticos.</li>
-            <li>Organização de filas, regras e fluxo de chamados.</li>
-          </ul>
-        </div>
-      </article>
-      <article>
-        <span>Início</span>
-        <div>
-          <small>2016 - 2023</small>
-          <h3>Propaganda, publicidade e primeiros projetos</h3>
-          <strong>Front-end, manutenção e evolução técnica</strong>
-          <p>Meu primeiro contato profissional com tecnologia aconteceu em uma empresa de propaganda e publicidade, onde comecei a entender a rotina de entrega, manutenção e comunicação visual. A partir dali, fui conectando front-end, back-end e suporte até chegar em sistemas corporativos.</p>
-          <ul>
-            <li>Primeiros contatos com HTML, CSS, JavaScript e manutenção de páginas.</li>
-            <li>Entendimento de demanda de cliente e entrega visual.</li>
-            <li>Base para evoluir depois em .NET, bancos de dados e sistemas públicos.</li>
-          </ul>
-        </div>
-      </article>
-    </div>
-  </section>
-
-  <section id="projeto" class="content-section project-story">
-    <div>
-      <p class="eyebrow">Como foi criado</p>
-      <h2>Este portfólio também é uma demonstração técnica do projeto.</h2>
-      <p>
-        A aplicação nasceu como um gerenciador de tarefas e evoluiu para um produto completo:
-        API REST, frontend Angular, autenticação, isolamento de tarefas por usuário, formulário
-        público de mensagens, testes, Swagger, Nginx e execução com Docker.
-      </p>
-      <div class="project-metrics" aria-label="Resumo técnico do projeto">
-        <article>
-          <strong>2</strong>
-          <span>Aplicações Docker</span>
-        </article>
-        <article>
-          <strong>3</strong>
-          <span>Fluxos principais</span>
-        </article>
-        <article>
-          <strong>REST</strong>
-          <span>Contrato de API</span>
-        </article>
-      </div>
-    </div>
-
-    <div class="timeline">
-      <article>
-        <span>01. Domínio</span>
-        <h3>Modelagem da regra de tarefas</h3>
-        <p>Entidades, value object de título, factory e casos de uso para manter a regra de negócio fora da controller.</p>
-      </article>
-      <article>
-        <span>02. API</span>
-        <h3>Contrato REST e persistência</h3>
-        <p>Spring Boot com domínio, casos de uso, repositórios, JPA, validações, tratamento global de erros e Swagger.</p>
-      </article>
-      <article>
-        <span>03. Segurança</span>
-        <h3>Autenticação e isolamento</h3>
-        <p>Cadastro, login, token assinado e proteção das rotas de tarefas por usuário autenticado.</p>
-      </article>
-      <article>
-        <span>04. Interface</span>
-        <h3>Angular e experiência do usuário</h3>
-        <p>Angular com componentes, signals, facade, services HTTP, tela pública de portfólio e área logada de tarefas.</p>
-      </article>
-      <article>
-        <span>05. Publicação</span>
-        <h3>Docker, EC2 e GitHub Pages</h3>
-        <p>Docker Compose com Nginx servindo o frontend, proxy `/api` para o backend e publicação estática do portfólio no GitHub Pages.</p>
-      </article>
-    </div>
-  </section>
-
-  <section id="github" class="content-section github-section">
+  <section id="codigo" class="content-section github-section">
     <div class="section-title">
       <p class="eyebrow">Código fonte</p>
       <h2>Repositórios do projeto</h2>
@@ -433,7 +422,7 @@
       >
         <span>Backend</span>
         <strong>netPrecisionBack-End</strong>
-        <p>API Spring Boot com auth, tarefas, mensagens e testes.</p>
+        <p>API Spring Boot com autenticação, tarefas, mensagens, Swagger e testes.</p>
       </a>
       <a
         href="https://github.com/matheusmoreirap852/netPrecisionFront-endAngular"
@@ -442,7 +431,7 @@
       >
         <span>Frontend</span>
         <strong>netPrecisionFront-endAngular</strong>
-        <p>Angular com portfólio, login, cadastro e integração com a API.</p>
+        <p>Angular com portfólio, login, cadastro, área logada e integração com a API.</p>
       </a>
       <a href="https://github.com/matheusmoreirap852" target="_blank" rel="noreferrer">
         <span>Perfil</span>
@@ -452,40 +441,10 @@
     </div>
   </section>
 
-  <section id="projetos" class="content-section projects-section">
-    <div class="section-title">
-      <p class="eyebrow">Apresentação</p>
-      <h2>Projetos, experiências e próximas evoluções</h2>
-    </div>
-
-    <div class="projects-grid">
-      <article>
-        <h3>Task Manager Fullstack</h3>
-        <p>Sistema completo usado neste portfólio, com API, frontend, login, cadastro e tarefas por usuário.</p>
-        <span>Angular | Spring Boot | Docker</span>
-      </article>
-      <article>
-        <h3>Gestão documental e integrações</h3>
-        <p>Experiência com Microsoft Graph API, SharePoint REST, AWS S3, controle de acesso e organização de documentos corporativos.</p>
-        <span>Graph API | SharePoint | AWS S3</span>
-      </article>
-      <article>
-        <h3>IA e dados para gestão pública</h3>
-        <p>Evolução acadêmica voltada a inteligência artificial, ciência de dados, indicadores e tomada de decisão na gestão pública.</p>
-        <span>IA | Ciência de dados | Gestão pública</span>
-      </article>
-    </div>
-
-    <div class="next-steps">
-      <strong>Próximas entregas</strong>
-      <span>Filtros de tarefas, painel administrativo de mensagens e publicação contínua.</span>
-    </div>
-  </section>
-
   <section id="mensagem" class="content-section message-section">
     <div class="section-title">
       <p class="eyebrow">Contato</p>
-      <h2>Deixe uma mensagem sobre código, carreira ou oportunidades.</h2>
+      <h2>Fale comigo sobre código, produto ou oportunidades.</h2>
     </div>
 
     <form class="message-form" (ngSubmit)="sendMessage()">

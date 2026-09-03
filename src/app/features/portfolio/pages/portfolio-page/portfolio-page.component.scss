@@ -15,7 +15,7 @@
   color: #fff;
   background:
     linear-gradient(90deg, rgba(12, 31, 43, 0.88), rgba(12, 31, 43, 0.62)),
-    url("https://images.unsplash.com/photo-1497366811353-6870744d04b2?auto=format&fit=crop&w=1800&q=80") center/cover;
+    url("https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=1800&q=80") center/cover;
 }
 
 .topbar,
@@ -26,7 +26,7 @@
 }
 
 .topbar,
-.topbar div,
+.nav-links,
 .hero-actions {
   display: flex;
   gap: 12px;
@@ -37,6 +37,26 @@
 .topbar {
   justify-content: space-between;
   padding: 10px 0;
+}
+
+.menu-toggle {
+  display: none;
+  width: 44px;
+  height: 44px;
+  place-items: center;
+  border: 1px solid rgba(255, 255, 255, 0.32);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.08);
+  cursor: pointer;
+}
+
+.menu-toggle span {
+  display: block;
+  width: 20px;
+  height: 2px;
+  margin: 3px 0;
+  border-radius: 999px;
+  background: #ffffff;
 }
 
 .topbar a,
@@ -79,7 +99,7 @@ ul {
 .eyebrow,
 .timeline span,
 .link-grid span,
-.projects-grid span {
+.case-grid span {
   color: #43d1b5;
   font-size: 0.82rem;
   font-weight: 900;
@@ -166,11 +186,11 @@ h1 {
 .resume-grid article,
 .timeline article,
 .link-grid a,
-.projects-grid article,
+.case-grid article,
 .message-form,
 .focus-strip article,
 .project-metrics article,
-.next-steps {
+.resume-download {
   display: grid;
   gap: 12px;
   padding: 20px;
@@ -212,17 +232,11 @@ h1 {
 
 .resume-grid,
 .link-grid,
-.projects-grid,
 .focus-strip,
-.project-metrics,
-.journey-grid {
+.project-metrics {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 14px;
-}
-
-.journey-grid {
-  grid-template-columns: repeat(3, minmax(0, 1fr));
 }
 
 .about-grid {
@@ -260,20 +274,20 @@ h1 {
 .focus-strip span,
 .skill-cloud span,
 .project-metrics span,
-.next-steps span {
+.resume-download span {
   color: #526173;
   line-height: 1.5;
 }
 
 .focus-strip,
 .skill-cloud,
-.next-steps {
+.resume-download {
   margin-top: 14px;
 }
 
 .focus-strip article,
 .project-metrics article,
-.next-steps,
+.resume-download,
 .journey-grid article {
   border: 1px solid #dce4ee;
   background: #ffffff;
@@ -282,31 +296,8 @@ h1 {
 
 .focus-strip strong,
 .project-metrics strong,
-.next-steps strong,
-.journey-grid strong {
+.resume-download strong {
   color: #17202c;
-}
-
-.journey-grid article {
-  display: grid;
-  gap: 12px;
-  padding: 20px;
-  border-radius: 8px;
-  border-top: 4px solid #21866f;
-  align-content: start;
-}
-
-.journey-grid span {
-  color: #21866f;
-  font-size: 0.82rem;
-  font-weight: 900;
-  letter-spacing: 0;
-  text-transform: uppercase;
-}
-
-.journey-grid p {
-  color: #526173;
-  line-height: 1.6;
 }
 
 .skill-cloud {
@@ -399,7 +390,7 @@ h1 {
 
 .resume-grid article,
 .link-grid a,
-.projects-grid article,
+.case-grid article,
 .message-form,
 .timeline article {
   border: 1px solid #dce4ee;
@@ -437,7 +428,7 @@ h1 {
 .resume-grid span,
 .timeline span,
 .link-grid span,
-.projects-grid span {
+.case-grid span {
   color: #21866f;
 }
 
@@ -446,11 +437,53 @@ h1 {
 .project-story p,
 .timeline p,
 .link-grid p,
-.projects-grid p,
+.case-grid p,
+.case-grid dd,
 .experience-list p,
 .experience-list li {
   color: #526173;
   line-height: 1.6;
+}
+
+.case-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.case-grid article {
+  align-content: start;
+}
+
+.case-grid dl,
+.case-grid div {
+  display: grid;
+  gap: 8px;
+}
+
+.case-grid dl {
+  margin: 0;
+}
+
+.case-grid dt {
+  color: #17202c;
+  font-weight: 900;
+}
+
+.case-grid dd {
+  margin: 0;
+}
+
+.case-result {
+  display: block;
+  margin-top: 4px;
+  color: #17614f;
+  line-height: 1.5;
+}
+
+.resume-download {
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: center;
 }
 
 label {
@@ -505,15 +538,42 @@ textarea:focus {
     padding: 18px 18px 42px;
   }
 
-  .topbar,
-  .topbar div,
+  .topbar {
+    position: relative;
+    align-items: center;
+    flex-direction: row;
+  }
+
+  .menu-toggle {
+    display: grid;
+  }
+
+  .nav-links {
+    position: absolute;
+    z-index: 5;
+    top: 58px;
+    right: 0;
+    left: 0;
+    display: none;
+    padding: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.28);
+    border-radius: 8px;
+    background: rgba(13, 33, 46, 0.96);
+    box-shadow: 0 16px 36px rgba(4, 12, 18, 0.26);
+  }
+
+  .nav-links.open {
+    display: flex;
+  }
+
+  .nav-links,
   .hero-actions {
     align-items: stretch;
     flex-direction: column;
   }
 
-  .topbar a,
-  .topbar button,
+  .nav-links a,
+  .nav-links button,
   .primary-action,
   .secondary-action {
     width: 100%;
@@ -525,11 +585,14 @@ textarea:focus {
   .resume-grid,
   .focus-strip,
   .project-metrics,
-  .journey-grid,
   .project-story,
   .link-grid,
-  .projects-grid,
+  .case-grid,
   .message-section {
+    grid-template-columns: 1fr;
+  }
+
+  .resume-download {
     grid-template-columns: 1fr;
   }
 

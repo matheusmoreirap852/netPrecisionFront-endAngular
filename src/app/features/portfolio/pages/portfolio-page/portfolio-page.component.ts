@@ -10,12 +10,21 @@ import { ContactMessageFacade } from '../../data-access/contact-message-facade.s
 })
 export class PortfolioPageComponent {
   readonly accessSystem = output<void>();
+  readonly menuOpen = signal(false);
   readonly name = signal('');
   readonly email = signal('');
   readonly subject = signal('');
   readonly message = signal('');
 
   constructor(readonly contactMessageFacade: ContactMessageFacade) {}
+
+  toggleMenu(): void {
+    this.menuOpen.update((open) => !open);
+  }
+
+  closeMenu(): void {
+    this.menuOpen.set(false);
+  }
 
   sendMessage(): void {
     this.contactMessageFacade.send(
