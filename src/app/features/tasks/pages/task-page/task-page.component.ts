@@ -4,6 +4,7 @@ import { TaskFormComponent } from '../../components/task-form/task-form.componen
 import { TaskListComponent } from '../../components/task-list/task-list.component';
 import { TaskSummaryComponent } from '../../components/task-summary/task-summary.component';
 import { TaskFacade } from '../../data-access/task-facade.service';
+import { AuthFacade } from '../../../auth/data-access/auth-facade.service';
 
 @Component({
   selector: 'app-task-page',
@@ -12,7 +13,10 @@ import { TaskFacade } from '../../data-access/task-facade.service';
   styleUrl: './task-page.component.scss',
 })
 export class TaskPageComponent implements OnInit {
-  constructor(readonly facade: TaskFacade) {}
+  constructor(
+    readonly facade: TaskFacade,
+    readonly authFacade: AuthFacade,
+  ) {}
 
   ngOnInit(): void {
     this.facade.loadTasks();

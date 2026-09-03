@@ -6,14 +6,20 @@
         <h1>Gerenciador de tarefas</h1>
       </div>
 
-      <button
-        class="refresh-button"
-        type="button"
-        (click)="facade.loadTasks()"
-        [disabled]="facade.loading()"
-      >
-        Atualizar
-      </button>
+      <div class="topbar-actions">
+        <button
+          class="refresh-button"
+          type="button"
+          (click)="facade.loadTasks()"
+          [disabled]="facade.loading()"
+        >
+          Atualizar
+        </button>
+
+        <button class="logout-button" type="button" (click)="authFacade.logout()">
+          Sair
+        </button>
+      </div>
     </header>
 
     <app-task-summary

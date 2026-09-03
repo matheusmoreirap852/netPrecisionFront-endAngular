@@ -26,6 +26,12 @@
   margin-bottom: 24px;
 }
 
+.topbar-actions {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
 .eyebrow {
   margin: 0 0 6px;
   color: #1b6b73;
@@ -61,7 +67,26 @@ h1 {
     background-color 160ms ease;
 }
 
+.logout-button {
+  min-height: 44px;
+  padding: 0 18px;
+  border: 1px solid #cbd6e4;
+  border-radius: 8px;
+  color: #344154;
+  font-weight: 700;
+  background: #ffffff;
+  cursor: pointer;
+  transition:
+    transform 160ms ease,
+    border-color 160ms ease;
+}
+
 .refresh-button:hover {
+  transform: translateY(-1px);
+}
+
+.logout-button:hover {
+  border-color: #94a3b8;
   transform: translateY(-1px);
 }
 
@@ -96,11 +121,17 @@ h1 {
     flex-direction: column;
   }
 
+  .topbar-actions {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+
   .content-grid {
     grid-template-columns: 1fr;
   }
 
-  .refresh-button {
+  .refresh-button,
+  .logout-button {
     width: 100%;
   }
 }

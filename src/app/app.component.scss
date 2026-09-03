@@ -1,3 +1,32 @@
 :host {
   display: block;
 }
+
+.system-shell {
+  position: relative;
+}
+
+.portfolio-link {
+  position: fixed;
+  z-index: 10;
+  top: 18px;
+  left: 18px;
+  min-height: 38px;
+  padding: 0 14px;
+  border: 1px solid #cbd6e4;
+  border-radius: 8px;
+  color: #344154;
+  font: inherit;
+  font-weight: 700;
+  background: rgba(255, 255, 255, 0.92);
+  box-shadow: 0 10px 24px rgba(24, 33, 47, 0.1);
+  cursor: pointer;
+}
+
+@media (max-width: 800px) {
+  .portfolio-link {
+    position: static;
+    width: calc(100% - 36px);
+    margin: 18px 18px 0;
+  }
+}

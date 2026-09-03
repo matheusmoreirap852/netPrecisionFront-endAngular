@@ -1,11 +1,18 @@
-import { provideHttpClient } from '@angular/common/http';
+import { provideHttpClient, withInterceptors } from '@angular/common/http';
 import { ApplicationConfig, provideBrowserGlobalErrorListeners } from '@angular/core';
-import { taskApiUrlProvider } from './core/config/api.config';
+import { authTokenInterceptor } from './features/auth/data-access/auth-token.interceptor';
+import {
+  authApiUrlProvider,
+  contactMessageApiUrlProvider,
+  taskApiUrlProvider,
+} from './core/config/api.config';
 
 export const appConfig: ApplicationConfig = {
   providers: [
     provideBrowserGlobalErrorListeners(),
-    provideHttpClient(),
+    provideHttpClient(withInterceptors([authTokenInterceptor])),
+    authApiUrlProvider,
+    contactMessageApiUrlProvider,
     taskApiUrlProvider,
   ],
 };

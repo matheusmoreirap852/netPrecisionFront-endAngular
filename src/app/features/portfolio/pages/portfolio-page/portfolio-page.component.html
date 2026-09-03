@@ -1,0 +1,142 @@
+<main class="portfolio-page">
+  <section class="hero-section">
+    <nav class="topbar" aria-label="Navegacao principal">
+      <strong>Matheus Pessoa</strong>
+      <div>
+        <a href="#curriculo">Curriculo</a>
+        <a href="#mensagem">Mensagem</a>
+        <button type="button" (click)="accessSystem.emit()">Sistema</button>
+      </div>
+    </nav>
+
+    <div class="hero-content">
+      <div>
+        <p class="eyebrow">Fullstack Angular + Spring Boot</p>
+        <h1>Portfolio tecnico com projeto real, API protegida e frontend em Docker.</h1>
+        <p class="hero-copy">
+          Desenvolvedor focado em construir sistemas web organizados, com boa separacao de
+          responsabilidades, experiencia clara para o usuario e codigo preparado para evoluir.
+        </p>
+        <div class="hero-actions">
+          <a class="primary-action" href="#mensagem">Deixar mensagem</a>
+          <button class="secondary-action" type="button" (click)="accessSystem.emit()">
+            Acessar sistema
+          </button>
+        </div>
+      </div>
+
+      <aside class="profile-card" aria-label="Resumo profissional">
+        <div class="avatar">MP</div>
+        <strong>Matheus Pessoa</strong>
+        <span>Java | Spring Boot | Angular | Docker</span>
+        <p>Projeto publicado como demonstracao pratica para recrutadores, clientes e conexoes do LinkedIn.</p>
+      </aside>
+    </div>
+  </section>
+
+  <section id="curriculo" class="content-section">
+    <div class="section-title">
+      <p class="eyebrow">Curriculo</p>
+      <h2>Experiencia apresentada por codigo, arquitetura e produto.</h2>
+    </div>
+
+    <div class="resume-grid">
+      <article>
+        <span>01</span>
+        <h3>Backend</h3>
+        <p>API REST em Spring Boot com camadas de dominio, aplicacao, infraestrutura e interfaces.</p>
+      </article>
+      <article>
+        <span>02</span>
+        <h3>Frontend</h3>
+        <p>Angular com componentes, services, facade, signals, formularios e integracao HTTP.</p>
+      </article>
+      <article>
+        <span>03</span>
+        <h3>Deploy</h3>
+        <p>Ambiente Docker com frontend em Nginx, proxy para API e configuracao para publicacao.</p>
+      </article>
+    </div>
+  </section>
+
+  <section class="content-section split-section">
+    <div>
+      <p class="eyebrow">Diferenciais</p>
+      <h2>O que este projeto demonstra</h2>
+    </div>
+
+    <ul class="skills-list">
+      <li>Autenticacao com token e tarefas protegidas por usuario.</li>
+      <li>Separacao entre regra de negocio, persistencia e camada REST.</li>
+      <li>Interface responsiva para portfolio, login, cadastro e gerenciamento de tarefas.</li>
+      <li>Build e execucao com Docker para facilitar apresentacao e deploy.</li>
+    </ul>
+  </section>
+
+  <section id="mensagem" class="content-section message-section">
+    <div class="section-title">
+      <p class="eyebrow">Contato</p>
+      <h2>Deixe uma mensagem sobre codigo, carreira ou oportunidades.</h2>
+    </div>
+
+    <form class="message-form" (ngSubmit)="sendMessage()">
+      <label>
+        <span>Nome</span>
+        <input
+          type="text"
+          name="contactName"
+          autocomplete="name"
+          [ngModel]="name()"
+          (ngModelChange)="name.set($event)"
+          required
+        />
+      </label>
+
+      <label>
+        <span>Email</span>
+        <input
+          type="email"
+          name="contactEmail"
+          autocomplete="email"
+          [ngModel]="email()"
+          (ngModelChange)="email.set($event)"
+          required
+        />
+      </label>
+
+      <label>
+        <span>Assunto</span>
+        <input
+          type="text"
+          name="subject"
+          [ngModel]="subject()"
+          (ngModelChange)="subject.set($event)"
+          required
+        />
+      </label>
+
+      <label>
+        <span>Mensagem</span>
+        <textarea
+          name="message"
+          rows="5"
+          [ngModel]="message()"
+          (ngModelChange)="message.set($event)"
+          required
+        ></textarea>
+      </label>
+
+      @if (contactMessageFacade.successMessage()) {
+        <p class="success-message">{{ contactMessageFacade.successMessage() }}</p>
+      }
+
+      @if (contactMessageFacade.errorMessage()) {
+        <p class="error-message">{{ contactMessageFacade.errorMessage() }}</p>
+      }
+
+      <button class="primary-action" type="submit" [disabled]="contactMessageFacade.sending()">
+        {{ contactMessageFacade.sending() ? 'Enviando...' : 'Enviar mensagem' }}
+      </button>
+    </form>
+  </section>
+</main>

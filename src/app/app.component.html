@@ -1,1 +1,15 @@
-<app-task-page />
+@if (currentView() === 'portfolio') {
+  <app-portfolio-page (accessSystem)="openSystem()" />
+} @else {
+  <div class="system-shell">
+    <button class="portfolio-link" type="button" (click)="openPortfolio()">
+      Voltar ao portfolio
+    </button>
+
+    @if (authFacade.isAuthenticated()) {
+      <app-task-page />
+    } @else {
+      <app-auth-page />
+    }
+  </div>
+}

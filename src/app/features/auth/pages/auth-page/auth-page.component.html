@@ -1,0 +1,86 @@
+<main class="auth-shell">
+  <section class="auth-panel">
+    <div class="brand-column">
+      <p class="eyebrow">NetPrecision</p>
+      <h1>Task Manager</h1>
+      <p class="support-text">
+        Acesse sua conta para acompanhar tarefas, pendencias e entregas em andamento.
+      </p>
+    </div>
+
+    <form class="auth-form" (ngSubmit)="submit()">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">Acesso</p>
+          <h2>{{ mode() === 'login' ? 'Entrar no sistema' : 'Criar conta' }}</h2>
+        </div>
+
+        <div class="mode-switch" aria-label="Selecionar modo de acesso">
+          <button
+            type="button"
+            [class.active]="mode() === 'login'"
+            (click)="selectMode('login')"
+          >
+            Login
+          </button>
+          <button
+            type="button"
+            [class.active]="mode() === 'register'"
+            (click)="selectMode('register')"
+          >
+            Cadastro
+          </button>
+        </div>
+      </div>
+
+      @if (mode() === 'register') {
+        <label>
+          <span>Nome</span>
+          <input
+            type="text"
+            name="name"
+            autocomplete="name"
+            [ngModel]="name()"
+            (ngModelChange)="name.set($event)"
+            maxlength="100"
+            required
+          />
+        </label>
+      }
+
+      <label>
+        <span>Email</span>
+        <input
+          type="email"
+          name="email"
+          autocomplete="email"
+          [ngModel]="email()"
+          (ngModelChange)="email.set($event)"
+          maxlength="160"
+          required
+        />
+      </label>
+
+      <label>
+        <span>Senha</span>
+        <input
+          type="password"
+          name="password"
+          [autocomplete]="mode() === 'login' ? 'current-password' : 'new-password'"
+          [ngModel]="password()"
+          (ngModelChange)="password.set($event)"
+          minlength="6"
+          required
+        />
+      </label>
+
+      @if (authFacade.errorMessage()) {
+        <p class="error-message">{{ authFacade.errorMessage() }}</p>
+      }
+
+      <button class="primary-button" type="submit" [disabled]="authFacade.loading()">
+        {{ authFacade.loading() ? 'Aguarde...' : mode() === 'login' ? 'Entrar' : 'Cadastrar' }}
+      </button>
+    </form>
+  </section>
+</main>
