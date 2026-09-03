@@ -177,6 +177,7 @@ const portfolioContent = {
       downloadTitle: 'Currículo em PDF',
       downloadCopy: 'Resumo objetivo para recrutadores, com competências, trajetória e contatos principais.',
       downloadButton: 'Baixar currículo em PDF',
+      downloadFile: 'curriculo-matheus-pessoa.pdf',
       educationTitle: 'Formação',
       education: [
         'PUC Goiás - Análise e Desenvolvimento de Sistemas, 2018 a 2021',
@@ -329,6 +330,7 @@ const portfolioContent = {
       downloadTitle: 'Resume PDF',
       downloadCopy: 'Objective summary for recruiters, with key skills, timeline and contact information.',
       downloadButton: 'Download resume PDF',
+      downloadFile: 'resume-matheus-pessoa.pdf',
       educationTitle: 'Education',
       education: [
         'PUC Goiás - Systems Analysis and Development, 2018 to 2021',

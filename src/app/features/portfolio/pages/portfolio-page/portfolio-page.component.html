@@ -41,7 +41,7 @@
         <p class="hero-copy">{{ content().hero.copy }}</p>
         <div class="hero-actions">
           <a class="primary-action" href="#projetos" (click)="closeMenu()">{{ content().hero.cases }}</a>
-          <a class="secondary-action" href="curriculo-matheus-pessoa.pdf" target="_blank" rel="noreferrer">
+          <a class="secondary-action" [href]="content().resume.downloadFile" target="_blank" rel="noreferrer">
             {{ content().hero.resume }}
           </a>
           <button class="secondary-action" type="button" (click)="accessSystem.emit()">
@@ -201,7 +201,7 @@
         <strong>{{ content().resume.downloadTitle }}</strong>
         <span>{{ content().resume.downloadCopy }}</span>
       </div>
-      <a class="primary-action" href="curriculo-matheus-pessoa.pdf" target="_blank" rel="noreferrer">
+      <a class="primary-action" [href]="content().resume.downloadFile" target="_blank" rel="noreferrer">
         {{ content().resume.downloadButton }}
       </a>
     </div>
