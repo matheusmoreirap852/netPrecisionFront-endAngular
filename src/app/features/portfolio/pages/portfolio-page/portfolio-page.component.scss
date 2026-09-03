@@ -71,7 +71,8 @@
 h1,
 h2,
 h3,
-p {
+p,
+ul {
   margin: 0;
 }
 
@@ -221,7 +222,7 @@ h1 {
 }
 
 .journey-grid {
-  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-template-columns: repeat(3, minmax(0, 1fr));
 }
 
 .about-grid {
@@ -292,6 +293,7 @@ h1 {
   padding: 20px;
   border-radius: 8px;
   border-top: 4px solid #21866f;
+  align-content: start;
 }
 
 .journey-grid span {
@@ -343,6 +345,11 @@ h1 {
   margin-bottom: 14px;
 }
 
+.experience-list article > div {
+  display: grid;
+  gap: 10px;
+}
+
 .experience-list article::before {
   position: absolute;
   top: 22px;
@@ -368,6 +375,18 @@ h1 {
 
 .experience-list small {
   color: #657386;
+}
+
+.experience-list ul {
+  display: grid;
+  gap: 8px;
+  padding-left: 18px;
+  color: #526173;
+  line-height: 1.5;
+}
+
+.experience-list li::marker {
+  color: #21866f;
 }
 
 .project-story,
@@ -428,7 +447,8 @@ h1 {
 .timeline p,
 .link-grid p,
 .projects-grid p,
-.experience-list p {
+.experience-list p,
+.experience-list li {
   color: #526173;
   line-height: 1.6;
 }
