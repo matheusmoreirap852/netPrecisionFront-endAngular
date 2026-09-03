@@ -79,6 +79,13 @@
   background: rgba(255, 255, 255, 0.08);
 }
 
+.topbar .language-button {
+  min-width: 48px;
+  padding: 0 10px;
+  color: #0d2231;
+  background: #43d1b5;
+}
+
 .hero-content {
   display: grid;
   min-height: calc(92vh - 64px);
