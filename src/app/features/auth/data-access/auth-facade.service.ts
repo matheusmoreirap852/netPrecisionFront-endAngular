@@ -47,7 +47,7 @@ export class AuthFacade {
     }
 
     if (!email || password.length < 6) {
-      this.errorMessage.set('Informe um email valido e senha com pelo menos 6 caracteres.');
+      this.errorMessage.set('Informe um email válido e senha com pelo menos 6 caracteres.');
       return;
     }
 
@@ -72,7 +72,7 @@ export class AuthFacade {
         next: (session) => this.saveSession(session),
         error: () =>
           this.errorMessage.set(
-            'Nao foi possivel autenticar. Confira os dados e tente novamente.',
+            'Não foi possível autenticar. Confira os dados e tente novamente.',
           ),
       });
   }

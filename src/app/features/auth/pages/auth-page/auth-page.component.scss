@@ -56,6 +56,22 @@ h1 {
   line-height: 1.6;
 }
 
+.feature-list {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.feature-list span {
+  padding: 8px 12px;
+  border: 1px solid #cbd6e4;
+  border-radius: 999px;
+  color: #344154;
+  font-size: 0.9rem;
+  font-weight: 800;
+  background: #ffffff;
+}
+
 .auth-form {
   display: grid;
   gap: 16px;

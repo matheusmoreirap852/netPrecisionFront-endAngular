@@ -33,7 +33,7 @@ export class TaskFacade {
         next: (tasks) => this.tasks.set(tasks),
         error: () =>
           this.errorMessage.set(
-            'Nao foi possivel carregar as tarefas. Confira se a API esta rodando.',
+            'Não foi possível carregar as tarefas. Confira se a API está rodando.',
           ),
       });
   }
@@ -43,7 +43,7 @@ export class TaskFacade {
     const description = request.description.trim();
 
     if (title.length < 3) {
-      this.errorMessage.set('Informe um titulo com pelo menos 3 caracteres.');
+      this.errorMessage.set('Informe um título com pelo menos 3 caracteres.');
       return;
     }
 
@@ -57,7 +57,7 @@ export class TaskFacade {
         next: (createdTask) => {
           this.tasks.update((tasks) => [createdTask, ...tasks]);
         },
-        error: () => this.errorMessage.set('Nao foi possivel criar a tarefa.'),
+        error: () => this.errorMessage.set('Não foi possível criar a tarefa.'),
       });
   }
 
@@ -72,7 +72,7 @@ export class TaskFacade {
             ),
           ),
         error: () =>
-          this.errorMessage.set('Nao foi possivel atualizar o status da tarefa.'),
+          this.errorMessage.set('Não foi possível atualizar o status da tarefa.'),
       });
   }
 
@@ -82,7 +82,7 @@ export class TaskFacade {
         this.tasks.update((tasks) =>
           tasks.filter((currentTask) => currentTask.id !== task.id),
         ),
-      error: () => this.errorMessage.set('Nao foi possivel excluir a tarefa.'),
+      error: () => this.errorMessage.set('Não foi possível excluir a tarefa.'),
     });
   }
 }

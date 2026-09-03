@@ -1,9 +1,14 @@
 <main class="portfolio-page">
   <section class="hero-section">
-    <nav class="topbar" aria-label="Navegacao principal">
+    <nav class="topbar" aria-label="Navegação principal">
       <strong>Matheus Pessoa</strong>
       <div>
-        <a href="#curriculo">Curriculo</a>
+        <a href="#sobre">Sobre</a>
+        <a href="#curriculo">Currículo</a>
+        <a href="#experiencia">Experiência</a>
+        <a href="#projeto">Projeto</a>
+        <a href="#github">GitHub</a>
+        <a href="#projetos">Projetos</a>
         <a href="#mensagem">Mensagem</a>
         <button type="button" (click)="accessSystem.emit()">Sistema</button>
       </div>
@@ -11,14 +16,23 @@
 
     <div class="hero-content">
       <div>
-        <p class="eyebrow">Fullstack Angular + Spring Boot</p>
-        <h1>Portfolio tecnico com projeto real, API protegida e frontend em Docker.</h1>
+        <p class="eyebrow">Full-Stack Software Engineer</p>
+        <h1>Matheus Moreira Pessoa</h1>
         <p class="hero-copy">
-          Desenvolvedor focado em construir sistemas web organizados, com boa separacao de
-          responsabilidades, experiencia clara para o usuario e codigo preparado para evoluir.
+          Desenvolvedor full stack com experiência desde 2016 em sistemas corporativos,
+          APIs REST, regras de negócio, bancos de dados, cloud, CI/CD, arquitetura de software
+          e evolução em inteligência artificial e ciência de dados para a gestão pública.
         </p>
         <div class="hero-actions">
           <a class="primary-action" href="#mensagem">Deixar mensagem</a>
+          <a
+            class="secondary-action"
+            href="https://github.com/matheusmoreirap852"
+            target="_blank"
+            rel="noreferrer"
+          >
+            Ver GitHub
+          </a>
           <button class="secondary-action" type="button" (click)="accessSystem.emit()">
             Acessar sistema
           </button>
@@ -27,56 +41,269 @@
 
       <aside class="profile-card" aria-label="Resumo profissional">
         <div class="avatar">MP</div>
-        <strong>Matheus Pessoa</strong>
-        <span>Java | Spring Boot | Angular | Docker</span>
-        <p>Projeto publicado como demonstracao pratica para recrutadores, clientes e conexoes do LinkedIn.</p>
+        <strong>C# | .NET | ASP.NET Core | React | REST APIs | SQL</strong>
+        <span>Goiânia, GO | Goiás, Brasil</span>
+        <p>Também atuo com Angular, Java, Spring Boot, Docker, GitHub, CI/CD, AWS EC2, Oracle, SQL Server e Supabase.</p>
       </aside>
+    </div>
+  </section>
+
+  <section id="sobre" class="content-section about-section">
+    <div class="section-title">
+      <p class="eyebrow">Sobre</p>
+      <h2>Engenharia de software com visão de produto, negócio e sustentação.</h2>
+    </div>
+
+    <div class="about-grid">
+      <article>
+        <h3>Resumo</h3>
+        <p>
+          Atuo no desenvolvimento, evolução e sustentação de soluções corporativas,
+          participando desde o entendimento das necessidades técnicas e de negócio até
+          implementação, testes, publicação e acompanhamento em produção.
+        </p>
+        <p>
+          Trabalho com Clean Code, SOLID, DDD, padrões de projeto, separação de
+          responsabilidades, segurança de aplicações e código preparado para evoluir.
+          Minha próxima etapa acadêmica é a especialização lato sensu pela UFG em
+          Inteligência Artificial e Ciência de Dados para a Gestão Pública.
+        </p>
+      </article>
+
+      <aside class="contact-card">
+        <h3>Contato</h3>
+        <a href="tel:+5562985821680">62 98582-1680</a>
+        <a href="mailto:matheus.pessoa.dev@gmail.com">matheus.pessoa.dev&#64;gmail.com</a>
+        <a
+          href="https://www.linkedin.com/in/matheus-moreira-pessoa-80b42a1b6"
+          target="_blank"
+          rel="noreferrer"
+        >
+          LinkedIn
+        </a>
+        <a href="https://github.com/matheusmoreirap852" target="_blank" rel="noreferrer">
+          GitHub
+        </a>
+      </aside>
+    </div>
+
+    <div class="focus-strip" aria-label="Áreas de atuação">
+      <article>
+        <strong>Produto</strong>
+        <span>Levantamento, priorização e acompanhamento de entregas.</span>
+      </article>
+      <article>
+        <strong>Qualidade</strong>
+        <span>Testes, revisão técnica, observabilidade e melhoria contínua.</span>
+      </article>
+      <article>
+        <strong>Operação</strong>
+        <span>Publicação, suporte, correção de incidentes e evolução segura.</span>
+      </article>
     </div>
   </section>
 
   <section id="curriculo" class="content-section">
     <div class="section-title">
-      <p class="eyebrow">Curriculo</p>
-      <h2>Experiencia apresentada por codigo, arquitetura e produto.</h2>
+      <p class="eyebrow">Currículo</p>
+      <h2>Competências principais e formação.</h2>
     </div>
 
     <div class="resume-grid">
       <article>
         <span>01</span>
-        <h3>Backend</h3>
-        <p>API REST em Spring Boot com camadas de dominio, aplicacao, infraestrutura e interfaces.</p>
+        <h3>Full Stack</h3>
+        <p>C#, .NET, ASP.NET Core, React, Angular, Java, Spring Boot, TypeScript, APIs REST e integrações.</p>
       </article>
       <article>
         <span>02</span>
-        <h3>Frontend</h3>
-        <p>Angular com componentes, services, facade, signals, formularios e integracao HTTP.</p>
+        <h3>Dados e cloud</h3>
+        <p>Oracle, SQL Server, Supabase, PL/SQL, Python, BI, Amazon S3, AWS EC2, Docker e Kubernetes.</p>
       </article>
       <article>
         <span>03</span>
-        <h3>Deploy</h3>
-        <p>Ambiente Docker com frontend em Nginx, proxy para API e configuracao para publicacao.</p>
+        <h3>Arquitetura</h3>
+        <p>Clean Code, SOLID, DDD, Arquitetura Limpa, microsserviços, segurança, testes e CI/CD.</p>
+      </article>
+    </div>
+
+    <div class="education-strip">
+      <strong>Formação</strong>
+      <span>PUC Goiás - Análise e Desenvolvimento de Sistemas, 2018 a 2021</span>
+      <span>UFG Idiomas - Inglês, nível B1, em andamento</span>
+      <span>UFG - Especialização lato sensu em Inteligência Artificial e Ciência de Dados para a Gestão Pública, início planejado</span>
+    </div>
+
+    <div class="skill-cloud" aria-label="Tecnologias e práticas">
+      <span>Domain-Driven Design</span>
+      <span>APIs REST</span>
+      <span>Microsserviços</span>
+      <span>Docker</span>
+      <span>CI/CD</span>
+      <span>SQL</span>
+      <span>Cloud</span>
+      <span>Testes automatizados</span>
+    </div>
+  </section>
+
+  <section id="experiencia" class="content-section experience-section">
+    <div class="section-title">
+      <p class="eyebrow">Experiência</p>
+      <h2>Trajetória em sistemas corporativos, setor público, cloud e liderança técnica.</h2>
+    </div>
+
+    <div class="experience-list">
+      <article>
+        <span>Jun 2026 - atual</span>
+        <h3>Argo Inteligência Digital</h3>
+        <strong>Engenheiro de Software</strong>
+        <p>Desenvolvimento, evolução e sustentação de soluções utilizadas pela Prefeitura de Goiânia, com requisitos, regras de negócio, bancos de dados, integrações, testes e acompanhamento de entregas.</p>
+      </article>
+      <article>
+        <span>Out 2025 - Jun 2026</span>
+        <h3>Óticas Brasil</h3>
+        <strong>Software Engineer | PJ sob demanda</strong>
+        <p>Sistema web integrado a Oracle e PL/SQL, migração para AWS EC2, automações, API em Python para BI, consultas analíticas, GitHub e deploy em ambientes cloud.</p>
+      </article>
+      <article>
+        <span>Jan 2024 - Jun 2026</span>
+        <h3>Tata Consultancy Services</h3>
+        <strong>Analista de Sistemas Pleno | Software Engineer</strong>
+        <p>Soluções corporativas para Petrobras, gestão documental, Microsoft Graph API, SharePoint REST, AWS S3, controle de acesso, testes, documentação e apresentação de solução com IA para equipes internacionais.</p>
+      </article>
+      <article>
+        <span>Mar 2025 - Jun 2025</span>
+        <h3>Sorigue | Playroll Spain</h3>
+        <strong>Tech Lead Freelancer</strong>
+        <p>Liderança técnica em projeto internacional, arquitetura com .NET Core 5 a 8, microsserviços, Azure, testes automatizados, CI/CD e comunicação em espanhol e inglês.</p>
+      </article>
+      <article>
+        <span>Jul 2022 - Fev 2024</span>
+        <h3>Senac Goiás</h3>
+        <strong>Analista de Sistemas de TI</strong>
+        <p>Sistemas para SENAC e SESC, DDD, SOLID, Arquitetura Limpa, SQL Server, Docker, Kubernetes, Apache Kafka, APIs, integrações e segurança de aplicações.</p>
+      </article>
+      <article>
+        <span>2016 - 2023</span>
+        <h3>Cast Group, BTCC, Ortobom e Harpia Propaganda</h3>
+        <strong>Desenvolvimento, sustentação e front-end</strong>
+        <p>Experiência com .NET, MVC, Oracle, SQL Server, Jenkins, sistemas públicos, suporte técnico, HTML, CSS, JavaScript, Bootstrap, React, Angular e React Native.</p>
       </article>
     </div>
   </section>
 
-  <section class="content-section split-section">
+  <section id="projeto" class="content-section project-story">
     <div>
-      <p class="eyebrow">Diferenciais</p>
-      <h2>O que este projeto demonstra</h2>
+      <p class="eyebrow">Como foi criado</p>
+      <h2>Este portfólio também é uma demonstração técnica do projeto.</h2>
+      <p>
+        A aplicação nasceu como um gerenciador de tarefas e evoluiu para um produto completo:
+        API REST, frontend Angular, autenticação, isolamento de tarefas por usuário, formulário
+        público de mensagens, testes, Swagger, Nginx e execução com Docker.
+      </p>
+      <div class="project-metrics" aria-label="Resumo técnico do projeto">
+        <article>
+          <strong>2</strong>
+          <span>Aplicações Docker</span>
+        </article>
+        <article>
+          <strong>3</strong>
+          <span>Fluxos principais</span>
+        </article>
+        <article>
+          <strong>REST</strong>
+          <span>Contrato de API</span>
+        </article>
+      </div>
     </div>
 
-    <ul class="skills-list">
-      <li>Autenticacao com token e tarefas protegidas por usuario.</li>
-      <li>Separacao entre regra de negocio, persistencia e camada REST.</li>
-      <li>Interface responsiva para portfolio, login, cadastro e gerenciamento de tarefas.</li>
-      <li>Build e execucao com Docker para facilitar apresentacao e deploy.</li>
-    </ul>
+    <div class="timeline">
+      <article>
+        <span>Backend</span>
+        <p>Spring Boot com domínio, casos de uso, repositórios, JPA, validações, tratamento global de erros e Swagger.</p>
+      </article>
+      <article>
+        <span>Autenticação</span>
+        <p>Cadastro, login, token assinado e proteção das rotas de tarefas por usuário autenticado.</p>
+      </article>
+      <article>
+        <span>Frontend</span>
+        <p>Angular com componentes, signals, facade, services HTTP, tela pública de portfólio e área logada de tarefas.</p>
+      </article>
+      <article>
+        <span>Publicação</span>
+        <p>Docker Compose com Nginx servindo o frontend e encaminhando chamadas `/api` para o backend.</p>
+      </article>
+    </div>
+  </section>
+
+  <section id="github" class="content-section github-section">
+    <div class="section-title">
+      <p class="eyebrow">Código fonte</p>
+      <h2>Repositórios do projeto</h2>
+    </div>
+
+    <div class="link-grid">
+      <a
+        href="https://github.com/matheusmoreirap852/netPrecisionBack-End"
+        target="_blank"
+        rel="noreferrer"
+      >
+        <span>Backend</span>
+        <strong>netPrecisionBack-End</strong>
+        <p>API Spring Boot com auth, tarefas, mensagens e testes.</p>
+      </a>
+      <a
+        href="https://github.com/matheusmoreirap852/netPrecisionFront-endAngular"
+        target="_blank"
+        rel="noreferrer"
+      >
+        <span>Frontend</span>
+        <strong>netPrecisionFront-endAngular</strong>
+        <p>Angular com portfólio, login, cadastro e integração com a API.</p>
+      </a>
+      <a href="https://github.com/matheusmoreirap852" target="_blank" rel="noreferrer">
+        <span>Perfil</span>
+        <strong>GitHub Matheus Pessoa</strong>
+        <p>Outros estudos, evoluções e projetos publicados.</p>
+      </a>
+    </div>
+  </section>
+
+  <section id="projetos" class="content-section projects-section">
+    <div class="section-title">
+      <p class="eyebrow">Apresentação</p>
+      <h2>Projetos, experiências e próximas evoluções</h2>
+    </div>
+
+    <div class="projects-grid">
+      <article>
+        <h3>Task Manager Fullstack</h3>
+        <p>Sistema completo usado neste portfólio, com API, frontend, login, cadastro e tarefas por usuário.</p>
+        <span>Angular | Spring Boot | Docker</span>
+      </article>
+      <article>
+        <h3>Gestão documental e integrações</h3>
+        <p>Experiência com Microsoft Graph API, SharePoint REST, AWS S3, controle de acesso e organização de documentos corporativos.</p>
+        <span>Graph API | SharePoint | AWS S3</span>
+      </article>
+      <article>
+        <h3>IA e dados para gestão pública</h3>
+        <p>Evolução acadêmica voltada a inteligência artificial, ciência de dados, indicadores e tomada de decisão na gestão pública.</p>
+        <span>IA | Ciência de dados | Gestão pública</span>
+      </article>
+    </div>
+
+    <div class="next-steps">
+      <strong>Próximas entregas</strong>
+      <span>Filtros de tarefas, painel administrativo de mensagens e publicação contínua.</span>
+    </div>
   </section>
 
   <section id="mensagem" class="content-section message-section">
     <div class="section-title">
       <p class="eyebrow">Contato</p>
-      <h2>Deixe uma mensagem sobre codigo, carreira ou oportunidades.</h2>
+      <h2>Deixe uma mensagem sobre código, carreira ou oportunidades.</h2>
     </div>
 
     <form class="message-form" (ngSubmit)="sendMessage()">

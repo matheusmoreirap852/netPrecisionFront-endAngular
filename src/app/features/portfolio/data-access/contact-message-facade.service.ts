@@ -39,7 +39,7 @@ export class ContactMessageFacade {
         },
         error: () =>
           this.errorMessage.set(
-            'Nao foi possivel enviar agora. Tente novamente em alguns instantes.',
+            'Não foi possível enviar agora. Tente novamente em alguns instantes.',
           ),
       });
   }
